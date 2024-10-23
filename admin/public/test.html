@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag</title>
+    <style>
+      #div1 {
+        width: 500px;
+        height: 500px;
+        border: 1px dashed #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img id="drag1" src="https://t7.baidu.com/it/u=1595072465,3644073269&fm=193&f=GIF" draggable="true" ondragstart="drag(event)" width="336" height="309" />
+    <script type="text/javascript">
+      function allowDrop(ev) {
+        ev.preventDefault()
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData('Text', ev.target.id)
+      }
+
+      function drop(ev) {
+        ev.preventDefault()
+        var data = ev.dataTransfer.getData('Text')
+        ev.target.appendChild(document.getElementById(data))
+      }
+    </script>
+  </body>
+</html>

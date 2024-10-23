@@ -1,0 +1,37 @@
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+.zoom-in-out {
+  animation: zoomInOut 3s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+.shake {
+  animation: shake 3s ease-in-out infinite;
+}

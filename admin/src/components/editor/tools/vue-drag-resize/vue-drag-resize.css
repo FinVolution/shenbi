@@ -1,0 +1,71 @@
+.vdr {
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.vdr.active:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  outline: 1px solid #52AAFF;
+}
+
+.vdr-stick {
+  box-sizing: border-box;
+  position: absolute;
+  font-size: 1px;
+  background: #ffffff;
+  border: 1px solid #6c6c6c;
+  box-shadow: 0 0 2px #bbb;
+}
+
+.inactive .vdr-stick {
+  display: none;
+}
+
+.vdr-stick-tl, .vdr-stick-br {
+  cursor: nwse-resize;
+}
+
+.vdr-stick-tm, .vdr-stick-bm {
+  left: 50%;
+  cursor: ns-resize;
+}
+
+.vdr-stick-tr, .vdr-stick-bl {
+  cursor: nesw-resize;
+}
+
+.vdr-stick-ml, .vdr-stick-mr {
+  top: 50%;
+  cursor: ew-resize;
+}
+
+.vdr-stick.not-resizable {
+  display: none;
+}
+
+.content-container {
+  position: relative;
+  display: flex;
+}
+
+.rot-wrapper {
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+.handle-rot {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 6px hsl(0deg 0% 63% / 60%);
+  border-radius: 50%;
+  padding: 5px;
+}

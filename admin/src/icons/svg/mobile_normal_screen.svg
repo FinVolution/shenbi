@@ -1,0 +1,9 @@
+<svg width="25" height="48" viewBox="0 0 25 48" xmlns="http://www.w3.org/2000/svg">
+  <g fill="" fill-rule="evenodd">
+    <text opacity=".3" font-family="inherit" font-size="11" font-weight="500">
+      <tspan x="1" y="28">16:9</tspan>
+    </text>
+    <path d="M23.5 0A1.5 1.5 0 0 1 25 1.5v45a1.5 1.5 0 0 1-1.5 1.5h-22A1.5 1.5 0 0 1 0 46.5v-45A1.5 1.5 0 0 1 1.5 0h22zm.373 3H1.127A.127.127 0 0 0 1 3.127v42.746c0 .07.057.127.127.127h22.746c.07 0 .127-.057.127-.127V3.127A.127.127 0 0 0 23.873 3zM13.75 1h-2.5a.25.25 0 1 0 0 .5h2.5a.25.25 0 1 0 0-.5z"
+      fill-rule="nonzero"></path>
+  </g>
+</svg>

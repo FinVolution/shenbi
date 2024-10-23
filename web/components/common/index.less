@@ -1,0 +1,41 @@
+@import '../../../assets//less/base/mixins.less';
+.editor {
+    .setSize(100%, 100%);
+    box-sizing: border-box;
+    min-height: 667px;
+    position: relative;
+    .component-item {
+        position: relative;
+        color: #fff;
+        cursor: pointer;
+        box-sizing: border-box;
+        &.with-flex {
+            .setFlexPos(row, space-between, center);
+            flex-wrap: wrap;
+            &.dir-row {
+                flex-direction: row;
+            }
+            &.dir-column {
+                flex-direction: column;
+            }
+            &.align-left {
+                justify-content: flex-start;
+            }
+            &.align-center {
+                justify-content: center;
+            }
+            &.align-right {
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+.webTitle {
+    padding-top: 44px;
+}
+.appTitle {
+    padding-top: 88px;
+}
+.pageBox{
+    position: relative;
+}

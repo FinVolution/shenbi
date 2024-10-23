@@ -1,0 +1,70 @@
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 303px;
+    height: 187px;
+    padding: 30px 26px 28px;
+    background: #fff;
+    border-radius: 8px;
+    text-align: center;
+}
+.confirm-dialog {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.dialog-title {
+    margin-bottom: 22px;
+    font-size: 17px;
+    font-weight: 800;
+    color: #002a3c;
+}
+
+.dialog-content {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 400;
+    color: #49596c;
+    line-height: 20px;
+}
+
+.dialog-footer {
+    width: 100%;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.dialog-button {
+    width: 194px;
+    height: 36px;
+    // background: linear-gradient(90deg, #fb6d46 0%, #f83871 100%);
+    background: linear-gradient(90deg, #fb6d46 0%, #f2442c 100%);
+    border-radius: 18px;
+    -webkit-tap-highlight-color: transparent;
+}
+.button-cancel {
+    width: 117px;
+    color: #49596c;
+    background: #fff;
+    border: 1px solid #dce1e6;
+}
+.button-ok {
+    width: 117px;
+}

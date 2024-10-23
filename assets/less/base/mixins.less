@@ -1,0 +1,190 @@
+@import './variables.less';
+.setFlexPos(@direction; @xPos;@yPos) {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: @direction;
+  justify-content: @xPos;
+  align-items: @yPos;
+}
+
+.border-set(@position, @color, @width: 2px, @radius: 0px)
+    when(@position = bottom) {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+        height: @width;
+        transform-origin: 0 0;
+        background-color: @color;
+    }
+}
+
+.border-set(@position, @color, @width: 2px, @radius: 0px)
+    when(@position = top) {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 1px;
+        width: 100%;
+        height: @width;
+        transform-origin: 0 0;
+        background-color: @color;
+    }
+}
+
+.border-set(@position, @color, @width: 2px, @radius: 0px)
+    when(@position = left) {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 1px;
+        top: 0;
+        width: @width;
+        height: 100%;
+        transform-origin: 0 0;
+        background-color: @color;
+    }
+}
+
+.border-set(@position, @color, @width: 2px, @radius: 0px)
+    when(@position = right) {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        right: 1px;
+        top: 0;
+        width: @width;
+        height: 100%;
+        transform-origin: 0 0;
+        background-color: @color;
+    }
+}
+
+.border-set(@position, @color, @width: 2px, @radius: 0px)
+    when(@position = all) {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border: @width solid @color;
+        border-radius: @radius;
+    }
+}
+
+.setSize(@width; @height) {
+  width: @width;
+  height: @height;
+}
+
+.setBgImg(@url; @position-horizontal;@position-vertical; @size; @repeat) when(isstring(@url)) {
+  background-image: url(@url);
+  background-position: @position-horizontal @position-vertical;
+  background-size: @size;
+  background-repeat: @repeat;
+}
+
+.setBgImg(@url; @position-horizontal;@position-vertical; @size; @repeat) when not (isstring(@url)) {
+  background-position: @position-horizontal @position-vertical;
+  background-size: @size;
+  background-repeat: @repeat;
+}
+
+.setPosition(@position; @top; @right; @bottom; @left) {
+  position: @position;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+
+.scrollBar() {
+  &::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 4px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background: #444;
+  }
+}
+
+.placeholder() {
+  &::placeholder {
+    color: #ccc;
+    font-size: inherit; // 20px;
+  }
+  &::-webkit-input-placeholder {
+    font-size: inherit; // 20px;
+    color: #ccc;
+  }
+  &:-moz-placeholder {
+    font-size: inherit; // 20px;
+    color: #ccc;
+  }
+  &::-moz-placeholder {
+    font-size: inherit; // 20px;
+    color: #ccc;
+  }
+  &:-ms-input-placeholder {
+    font-size: inherit; // 20px;
+    color: #ccc;
+  }
+}
+
+.f-12-bold() {
+  font-size: 12px;
+  font-family: 'fzlt_bold'; //FZLTHThin--GB1-4-YS,FZLTHThin--GB1-4;
+}
+
+.f-14-bold() {
+  font-size: 14px;
+  font-family: 'fzlt_bold'; //FZLTHThin--GB1-4-YS,FZLTHThin--GB1-4;
+}
+
+.f-10-bold() {
+  font-size: 10px;
+  font-family: 'fzlt_bold'; //FZLTHThin--GB1-4-YS,FZLTHThin--GB1-4;
+}
+
+.f-15() {
+  font-size: 15px;
+  font-family: 'fzlt'; //FZLTHThin--GB1-4-YS,FZLTHThin--GB1-4;
+}
+
+.f-16-bold() {
+  font-size: 16px;
+  font-family: 'fzlt_bold'; //FZLTHThin--GB1-4-YS,FZLTHThin--GB1-4;
+}
+
+.f-16() {
+  font-size: 16px;
+  font-family: 'fzlt'; //FZLTHThin--GB1-4-YS,FZLTHThin--GB1-4;
+}
+
+.f-18-bold() {
+  font-size: 18px;
+  font-family: 'fzlt_bold'; //FZLTHThin--GB1-4-YS,FZLTHThin--GB1-4;
+}

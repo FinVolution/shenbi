@@ -1,0 +1,88 @@
+{
+  "name": "shenbi",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@midwayjs/axios": "^2.12.4",
+    "@midwayjs/cache": "^2.14.0",
+    "@midwayjs/decorator": "^2.3.0",
+    "@midwayjs/mock": "^2.3.0",
+    "@midwayjs/task": "^2.14.0",
+    "@midwayjs/web": "^2.3.0",
+    "@types/cache-manager": "^3.4.2",
+    "axios": "^0.21.1",
+    "cache-manager": "^3.6.0",
+    "crypto-js": "3.1.9-1",
+    "currency.js": "^2.0.3",
+    "dayjs": "^1.10.4",
+    "egg": "^2.0.0",
+    "egg-scripts": "^2.10.0",
+    "ip": "^1.1.8",
+    "js-cookie": "^3.0.1",
+    "js-sha256": "^0.9.0",
+    "jsencrypt": "^3.0.0-rc.1",
+    "koa": "^2.13.4",
+    "redis": "^4.7.0",
+    "request": "^2.88.2",
+    "ssr-core-vue": "6.2.16",
+    "ssr-server-utils": "^6.2.69",
+    "ssr-types": "^5.0.0",
+    "stream-array": "^1.1.2",
+    "stream-to-array": "^2.3.0",
+    "swiper": "^5.0.0",
+    "targz": "^1.0.1",
+    "vant": "^2.12.7",
+    "vconsole": "^3.14.5",
+    "viewpoints": "^1.6.0",
+    "vue": "^2.7.16",
+    "vue-awesome-swiper": "^4.1.1",
+    "vue-clipboard2": "^0.3.1",
+    "vue-router": "2.8.1",
+    "vue-seamless-scroll": "^1.1.23",
+    "vuex": "^3.6.2",
+    "xgplayer": "^2.13.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@midwayjs/egg-ts-helper": "^1.0.5",
+    "better-scroll": "^2.4.2",
+    "cross-env": "^7.0.3",
+    "eslint-config-standard-vue-ts": "^1.0.5",
+    "postcss-px-to-viewport": "^1.1.1",
+    "ssr": "^6.0.0",
+    "ssr-plugin-midway": "^6.0.0",
+    "ssr-plugin-vue": "^6.0.0",
+    "ssr-types": "^6.0.0",
+    "typescript": "^4.0.0"
+  },
+  "scripts": {
+    "start": "npx cross-env DEPLOY_ENV=dev ENV=FAT ENV=fat npx ssr start",
+    "start:vite": "npx cross-env DEPLOY_ENV=dev npx ssr start --vite",
+    "build:test": "npx cross-env DEPLOY_ENV=dev npx ssr build && npm run move-public",
+    "build": "npx ssr build && npm run move-public",
+    "build:o2o": "npx cross-env DEPLOY_ENV=o2o npx ssr build && npm run move-public",
+    "build:dev": "npx cross-env DEPLOY_ENV=dev npx ssr build && npm run move-public",
+    "build:pre": "npx cross-env DEPLOY_ENV=pre npx ssr build && npm run move-public",
+    "move-public": "cp -r ./public/* ./build/",
+    "lint": "vue-cli-service lint",
+    "deploy": "ssr build && ssr deploy",
+    "deploy:tencent": "ssr build && ssr deploy --tencent",
+    "lint:fix": "eslint . --ext .js,.tsx,.ts,.vue --cache --fix",
+    "prod": "npx ssr build && npx egg-scripts start --daemon --port=8080 --title=acp-home --framework=@midwayjs/web",
+    "stop": "npx egg-scripts stop --title=acp-home"
+  },
+  "midway-integration": {
+    "tsCodeRoot": "src"
+  },
+  "midway-luckyeye": {
+    "packages": [
+      "midway_v2"
+    ]
+  },
+  "egg": {
+    "framework": "@midwayjs/web"
+  },
+  "engines": {
+    "node": "~16.17.0"
+  }
+}

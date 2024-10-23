@@ -1,0 +1,154 @@
+/* Font Family */
+.font-fzlt_bold {
+  font-family: 'fzlt_bold';
+}
+
+.font-fzlt {
+  font-family: 'fzlt';
+}
+
+.font-size(@size) when (@size >= 10) {
+  .fz-@{size} {
+    font-size: @size * 1px;
+  }
+  .font-size(@size - 1);
+}
+.font-size(100);
+
+/* Font Style */
+.italic {
+  font-style: italic;
+}
+
+/* Font Weight */
+.font-hairline {
+  font-weight: 100;
+}
+
+.font-thin {
+  font-weight: 200;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+/* Line Height */
+.leading-none {
+  line-height: 1;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-snug {
+  line-height: 1.375;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
+/* List Style Type */
+.list-none {
+  list-style-type: none;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.list-decimal {
+  list-style-type: decimal;
+}
+
+/* List Style Position */
+.list-inside {
+  list-style-position: inside;
+}
+
+.list-outside {
+  list-style-position: outside;
+}
+
+/* Text Alignment */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* Text Color */
+.text-black {
+  color: #000;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/* Text Decoration */
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+/* Text Format */
+.truncate-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.truncate (@line) when (@line >= 2) {
+  .truncate-@{line} {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line;
+    overflow: hidden;
+  }
+  .truncate(@line - 1);
+}
+.truncate(6);

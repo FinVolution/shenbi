@@ -1,0 +1,30 @@
+<div class="vdr" :style="positionStyle"
+     :class="`${(active || isActive) ? 'active' : 'inactive'} ${contentClass ? contentClass: ''}`"
+     @mousedown="bodyDown($event)"
+     @touchstart="bodyDown($event)"
+     @touchend="up($event)">
+  <div :style="sizeStyle" class="content-container" ref="container">
+    <slot></slot>
+  </div>
+  <div
+    v-for="stick in sticks"
+    class="vdr-stick"
+    :class="['vdr-stick-' + stick, isResizable ? '' : 'not-resizable']"
+    @mousedown.stop.prevent="stickDown(stick, $event)"
+    @touchstart.stop.prevent="stickDown(stick, $event)"
+    :style="vdrStick(stick)">
+  </div>
+  <template>
+    <div class="rot-wrapper" :style="{bottom: `-${40 / this.parentScaleX}px`}">
+      <div
+        class="handle-rot"
+        :style="[{display: active || isActive ? 'block' : 'none'}, rotStyle ]"
+        @mousedown.stop.prevent="bodyDown($event, 'rot')"
+        @touchstart.stop.prevent="bodyDown($event, 'rot')"
+      >
+        <i class="el-icon-refresh" style="color: black;"/>
+      </div>
+<!--      <div>{{rotate}}</div>-->
+    </div>
+  </template>
+</div>
