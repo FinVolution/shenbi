@@ -75,6 +75,12 @@ npm run start
 
 现在，你可以在浏览器访问 `http://localhost:3000/view/134218070/1/` 查看项目。
 
+#### 一键生成组件模板
+```bash
+# 启动项目
+npm run plop
+```
+
 ## 项目目录介绍
 
 ```
