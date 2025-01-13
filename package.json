@@ -71,7 +71,7 @@
     "lint:fix": "eslint . --ext .js,.tsx,.ts,.vue --cache --fix",
     "prod": "npx ssr build && npx egg-scripts start --daemon --port=8080 --title=acp-home --framework=@midwayjs/web",
     "stop": "npx egg-scripts stop --title=acp-home",
-    "plop": "plop"
+    "plop": "plop resource"
   },
   "midway-integration": {
     "tsCodeRoot": "src"
