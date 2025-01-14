@@ -5,7 +5,7 @@
             <el-table :data="tableData" row-key="projectId" align="center" style="width: 100%" v-if="visiableVersionList">
                 <el-table-column v-for="item in columns" :key="item.prop" :prop="item.prop" :label="item.label"
                     :formatter="item.formatter"></el-table-column>
-                <el-table-column fixed="right" label="操作" width="420">
+                <el-table-column fixed="right" label="操作" width="480">
                     <template slot-scope="data">
                         <ConfigurableButton type="dropdown" :buttonOptions="generateButtonOptions(data.row)" />
                     </template>
@@ -202,6 +202,7 @@ export default {
                         { name: '模版使用', onClick: () => this.handleEdit(row.projectId, 2) },
                         { name: '模版编辑', onClick: () => this.handleEdit(row.projectId, 1) },
                         { name: '日志', onClick: () => this.onQueryLog(row) },
+                        { name: '导出', onClick: () => this.exportProjectJSON(row.projectId) },
                     ];
                 }
                 if (publishStatus === 0 || publishStatus === 2) { // 未上线
@@ -211,6 +212,7 @@ export default {
                         { name: '模版使用', onClick: () => this.handleEdit(row.projectId, 2) },
                         { name: '模版编辑', onClick: () => this.handleEdit(row.projectId, 1) },
                         { name: '删除', onClick: () => this.deleteProject(row) },
+                        { name: '导出', onClick: () => this.exportProjectJSON(row.projectId) },
                     ];
                 }
             }
@@ -252,6 +254,20 @@ export default {
             }
             return tableButtonOptions;
         },
+        exportProjectJSON(projectId) {
+            this.$http.exportProjectJSON({ projectId }).then(res => {
+                const jsonString = JSON.stringify(res.Content, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.setAttribute('download', 'data.json');
+                a.href = url;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        }
     }
 };
 </script>

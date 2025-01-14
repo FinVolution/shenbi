@@ -81,6 +81,8 @@ npm run start
 npm run plop
 ```
 
+模板定义在项目根目录下的 plop-templates 和 plopfile.js，通过简单的 CLI（命令行界面）交互，在项目中快速生成预定义的代码片段，从而提升开发效率。
+
 ## 项目目录介绍
 
 ```
