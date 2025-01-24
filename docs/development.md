@@ -75,6 +75,14 @@ npm run start
 
 现在，你可以在浏览器访问 `http://localhost:3000/view/134218070/1/` 查看项目。
 
+#### 一键生成组件模板
+```bash
+# 启动项目
+npm run plop
+```
+
+模板定义在项目根目录下的 plop-templates 和 plopfile.js，通过简单的 CLI（命令行界面）交互，在项目中快速生成预定义的代码片段，从而提升开发效率。
+
 ## 项目目录介绍
 
 ```

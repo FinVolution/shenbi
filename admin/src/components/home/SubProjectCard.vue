@@ -5,7 +5,7 @@
             <el-table :data="tableData" row-key="projectId" align="center" style="width: 100%" v-if="visiableVersionList">
                 <el-table-column v-for="item in columns" :key="item.prop" :prop="item.prop" :label="item.label"
                     :formatter="item.formatter"></el-table-column>
-                <el-table-column fixed="right" label="操作" width="420">
+                <el-table-column fixed="right" label="操作" width="280">
                     <template slot-scope="data">
                         <ConfigurableButton type="dropdown" :buttonOptions="generateButtonOptions(data.row)" />
                     </template>
@@ -199,18 +199,34 @@ export default {
                     tableButtonOptions = [
                         { name: '预览', onClick: () => this.onPreviewProject(row) },
                         { name: '克隆', onClick: () => this.onCopyProject(row) },
-                        { name: '模版使用', onClick: () => this.handleEdit(row.projectId, 2) },
-                        { name: '模版编辑', onClick: () => this.handleEdit(row.projectId, 1) },
-                        { name: '日志', onClick: () => this.onQueryLog(row) },
+                        {
+                            name: '模版使用',
+                            dropMenu: [
+                                { name: '模版编辑', onClick: () => this.handleEdit(row.projectId, 1) },
+                                { name: '日志', onClick: () => this.onQueryLog(row) },
+                                { name: '导出', onClick: () => this.exportProjectJSON(row.projectId) },
+                                { name: '导入', onClick: () => this.importProjectJSON() },
+                            ],
+                            style: 'marginLeft: 10px',
+                            onClick: () => this.handleEdit(row.projectId, 2)
+                        }
                     ];
                 }
                 if (publishStatus === 0 || publishStatus === 2) { // 未上线
                     tableButtonOptions = [
                         { name: '预览', onClick: () => this.onPreviewProject(row) },
                         { name: '发布', onClick: () => this.publishProject(row) },
-                        { name: '模版使用', onClick: () => this.handleEdit(row.projectId, 2) },
-                        { name: '模版编辑', onClick: () => this.handleEdit(row.projectId, 1) },
-                        { name: '删除', onClick: () => this.deleteProject(row) },
+                        {
+                            name: '模版使用',
+                            dropMenu: [
+                                { name: '模版编辑', onClick: () => this.handleEdit(row.projectId, 1) },
+                                { name: '删除', onClick: () => this.deleteProject(row) },
+                                { name: '导出', onClick: () => this.exportProjectJSON(row.projectId) },
+                                { name: '导入', onClick: () => this.importProjectJSON() },
+                            ],
+                            style: 'marginLeft: 10px',
+                            onClick: () => this.handleEdit(row.projectId, 2)
+                        }
                     ];
                 }
             }
@@ -252,6 +268,44 @@ export default {
             }
             return tableButtonOptions;
         },
+        exportProjectJSON(projectId) {
+            this.$http.exportProjectJSON({ projectId }).then(res => {
+                const jsonString = JSON.stringify(res.Content, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.setAttribute('download', 'data.json');
+                a.href = url;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        },
+        importProjectJSON() {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.json';
+            fileInput.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const jsonObject = JSON.parse(e.target.result);
+                            this.$http.saveProject(jsonObject).then(res => {
+                                this.$message.success('导入成功！');
+                                this.activeTab = 'second';
+                            });
+                        } catch (error) {
+                            console.error('解析 JSON 失败:', error);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            fileInput.click();
+        }
     }
 };
 </script>

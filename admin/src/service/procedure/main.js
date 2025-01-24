@@ -222,4 +222,10 @@ export default [
     name: 'batchRepublish',
     method: REQUEST_METHOD_POST
   },
+  // project json 导出
+  {
+    subUrl: '/acp/projectService/export',
+    name: 'exportProjectJSON',
+    method: REQUEST_METHOD_POST
+  },
 ]

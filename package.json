@@ -48,6 +48,7 @@
     "better-scroll": "^2.4.2",
     "cross-env": "^7.0.3",
     "eslint-config-standard-vue-ts": "^1.0.5",
+    "plop": "^4.0.1",
     "postcss-px-to-viewport": "^1.1.1",
     "ssr": "^6.0.0",
     "ssr-plugin-midway": "^6.0.0",
@@ -69,7 +70,8 @@
     "deploy:tencent": "ssr build && ssr deploy --tencent",
     "lint:fix": "eslint . --ext .js,.tsx,.ts,.vue --cache --fix",
     "prod": "npx ssr build && npx egg-scripts start --daemon --port=8080 --title=acp-home --framework=@midwayjs/web",
-    "stop": "npx egg-scripts stop --title=acp-home"
+    "stop": "npx egg-scripts stop --title=acp-home",
+    "plop": "plop resource"
   },
   "midway-integration": {
     "tsCodeRoot": "src"
@@ -82,7 +84,7 @@
   "egg": {
     "framework": "@midwayjs/web"
   },
-  "engines": {
-    "node": "~16.17.0"
+  "volta": {
+    "node": "18.17.0"
   }
 }

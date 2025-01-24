@@ -105,7 +105,6 @@ export default {
     //获取h5编辑的json
     getProjectConfigJson() {
       let { projectId, preId } = this
-      console.log('getProjectConfigJson', projectId, preId)
       this.$http
         .editPreviewProject({ projectId, preId })
         .then(response => {

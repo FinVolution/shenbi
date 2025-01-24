@@ -1,0 +1,8 @@
+import { IBaseResult, IHomeProperties } from '../interface/nineGird';
+import { post, get } from '../utils/request';
+
+export const exampleService = async (params: {
+    activityType: number;
+}): Promise<{ data: IBaseResult<IHomeProperties> }> => {
+    return await post('/api/example', params, true);
+};

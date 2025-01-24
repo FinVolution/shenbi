@@ -59,3 +59,15 @@
 ![alt text](./images/project-url.png)
 
 ![alt text](./images/project-view.png)
+
+## 4. 版本导入导出
+
+**路径**：搭建平台首页 >> 项目列表 >> 项目列表操作，导入、导出
+
+![alt text](./images/project-export.png)
+
+“导入导出”功能允许将一个版本页面导出为一个json文件，在另外一个环境进行导入  
+
+点击“导出”，会在本地下载一个json文件，该json文件包含了该版本页面所有的“项目配置”信息。
+
+
