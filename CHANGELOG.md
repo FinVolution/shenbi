@@ -1,4 +1,4 @@
-# [1.1.0]() ()
+# [1.1.0](https://github.com/FinVolution/shenbi/commit/ac87ff4c36d644a15dff586ae4435980ed571e35) (2025-01-24)
 
 ### Features
 
