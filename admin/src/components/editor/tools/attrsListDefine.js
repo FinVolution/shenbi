@@ -128,5 +128,6 @@ const componentsMap = {
     richtext: () => import('~/editor/attr/richtext/index'),
     o2oLogin: () => import('~/editor/attr/o2oLogin'),
     swiperBySelf: () => import('~/editor/attr/swiperBySelf'),
+    goldenEggPlay: () => import('~/editor/attr/activity/golden_egg/play'),
 }
 export { componentsMap, attrMap }

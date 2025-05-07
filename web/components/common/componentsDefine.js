@@ -11,5 +11,6 @@ const componentsMap = {
     rcMarquee: () => import('@/components/activity/regularCustomer/marquee'),
     rcAwardCard: () => import('@/components/activity/regularCustomer/awardCard'),
     rcParticipationCard: () => import('@/components/activity/regularCustomer/participationCard'),
+    goldenEggPlay: () =>  import('@/components/activity/golden_egg/play'),
 }   
 export { componentsMap }

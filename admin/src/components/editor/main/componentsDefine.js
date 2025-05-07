@@ -12,5 +12,6 @@ const componentsMap = {
     rcParticipationCard: () => import('$root/common/activity/regularCustomer/participationCard'),
     copyright: () => import('$root/common/activity/regularCustomer/copyright.vue'),
     o2oLogin: () => import('$root/common/o2o/login'),
+    goldenEggPlay: () => import('$root/common/activity/golden_egg/play'),
 }
 export { componentsMap }

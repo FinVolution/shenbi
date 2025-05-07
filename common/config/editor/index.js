@@ -11,6 +11,7 @@ import rcMarquee from './rcMarquee';
 import rcAwardCard from './rcAwardCard';
 import rcParticipationCard from './rcParticipationCard';
 import o2oLogin from './login';
+import goldenEggPlay from './golden_egg/play.js'
 
 export const TAG_COMPONENT_ARR = [
     { tag: 'common', name: '基础' },
@@ -31,5 +32,6 @@ export default {
     rcMarquee,
     rcAwardCard,
     rcParticipationCard,
-    o2oLogin
+    o2oLogin,
+    goldenEggPlay,
 };
