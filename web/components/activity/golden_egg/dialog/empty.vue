@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import { skipRouterConfig } from '../SkipRouterConfig'
 import { redirectTo } from '@/utils/redirect'
 export default {
     'props': ['show', 'src', 'text', 'isCountdown', 'subscribeScene', 'lockDialog', 'goldTaskAmount', 'firstCoupon', 'subscribeType'],
@@ -44,7 +43,7 @@ export default {
         return {
             'isApp': false,
             'timeFlag': null,
-            'loanUrl': skipRouterConfig.goToLoanUrl,
+            'loanUrl': '',
             'countdown': 0,
         }
     },

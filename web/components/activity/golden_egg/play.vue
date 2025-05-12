@@ -32,7 +32,6 @@ import Play from '../../../../common/activity/golden_egg/play';
 import AwardShow from './award.vue';
 import _ from 'lodash';
 import Empty from './dialog/empty.vue'
-import Loan from '@/components/activity/golden_egg/dialog/Loan'
 import { homeDataPre, queryCouponV2, draw } from '@/service/golden_egg';
 import AwardDialog from '@/components/activity/golden_egg/dialog/awardDialog'
 import { getQueryString } from '@/utils/query'
@@ -53,7 +52,6 @@ export default {
     components: {
         Play,
         AwardShow,
-        Scroll,
         AwardDialog,
         Empty
     },
