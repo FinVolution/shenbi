@@ -15,7 +15,7 @@
         <div v-else class="state" :class="btnText(item)">下周再来</div>
         <template v-if="item.lotteryType === 3">
           <div class="subtitle" v-if="currentOpen || taskAmountScene === 'showAmount'">{{ item.desc }}</div>
-          <div class="subtitle" v-else>xxxx用户可享</div>
+          <div class="subtitle" v-else>一段文案</div>
         </template>
         <template v-else>
           <div class="subtitle">{{ item.desc }}</div>
@@ -74,13 +74,13 @@ export default {
         return [
           {
             "availableOpportunity": 100,
-            "desc": "xxxx用户可享",
+            "desc": "一段文案",
             "lotteryType": 1,
             "totalOpportunity": 100
           },
           {
             "availableOpportunity": 100,
-            "desc": "xxxx用户可享",
+            "desc": "一段文案",
             "lotteryType": 2,
             "totalOpportunity": 100
           },

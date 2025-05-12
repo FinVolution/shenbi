@@ -1,6 +1,6 @@
 {
   "name": "shenbi",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "dependencies": {
     "@midwayjs/axios": "^2.12.4",
