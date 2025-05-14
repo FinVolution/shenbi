@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/FinVolution/shenbi/commit/634e7a7423c6089b46a94742fe25bb2bdc39bab8) (2025-05-14)
+
+### Features
+
+* 新增活动组件：砸金蛋组件
+
 # [1.1.0](https://github.com/FinVolution/shenbi/commit/ac87ff4c36d644a15dff586ae4435980ed571e35) (2025-01-24)
 
 ### Features
